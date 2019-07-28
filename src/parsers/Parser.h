@@ -10,7 +10,9 @@
 #include <algorithm>
 #include <chrono>
 
-
+/*
+    Parsing strategy base class
+*/
 class Parser {
 
 public:

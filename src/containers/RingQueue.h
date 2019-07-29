@@ -83,7 +83,7 @@ protected:
     };
 
     std::unique_ptr< std::vector< std::unique_ptr<bag> > >  m_ring_vector;
-    std::atomic_uint32_t m_total_count;
+    std::atomic<uint32_t> m_total_count;
 };
 
 

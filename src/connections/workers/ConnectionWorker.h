@@ -12,7 +12,7 @@
 #include <atomic>
 
 #include "../../containers/QueueBase.h"
-#include "../../parsers/Parser.h"
+#include "../../parsers/ParserBase.h"
 #include "../../containers/SizedArray.h"
 
 
@@ -29,7 +29,7 @@ public:
     ConnectionWorker(std::shared_ptr<QueueBase> queue_for_reading_data_from_source,
                      std::shared_ptr<QueueBase> queue_for_writing_data_to_source);
 
-    void set_parser(std::unique_ptr<Parser>&& parser);
+    void set_parser(std::unique_ptr<ParserBase>&& parser);
     inline void set_postmortem_callback(WorkerPostMortem cb){ m_postmortem_callback = cb;}
 
     inline std::shared_ptr<QueueBase> get_queue_for_reading_data_from_source() {return m_queue_for_reading_data_from_source;}
@@ -81,7 +81,7 @@ protected:
     virtual ssize_t write_data_to_source(std::shared_ptr<SizedArray<uint8_t, connection_worker_arr_size> > buf);
     
     ///  Parsing strategy
-    std::unique_ptr<Parser> m_parser = nullptr;
+    std::unique_ptr<ParserBase> m_parser = nullptr;
     WorkerPostMortem m_postmortem_callback = [](ConnectionWorker* a){
         std::cerr<<"Posmorten callback is not set in ConnectionWorker! It causes memory leak.\n";
     }; ///callback that will call after both threads stops

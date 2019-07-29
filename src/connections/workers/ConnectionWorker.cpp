@@ -152,7 +152,7 @@ void ConnectionWorker::stop() {
     m_stop_asked = true;
 }
 
-void ConnectionWorker::set_parser(std::unique_ptr<Parser>&& parser) {
+void ConnectionWorker::set_parser(std::unique_ptr<ParserBase>&& parser) {
     m_parser = std::move(parser);
 }
 

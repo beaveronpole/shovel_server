@@ -13,20 +13,20 @@
 /*
     Parsing strategy base class
 */
-class Parser {
+class ParserBase {
 
 public:
-    explicit Parser() = default;
+    explicit ParserBase() = default;
     /// parses binary data from buf with size size, and cut found datagrams to for_parsed vector
     /// return datagram count in vector
     virtual uint32_t put(const uint8_t *buf, uint32_t data_size, std::vector< std::vector<uint8_t> >& for_parsed);
 
-    virtual ~Parser() = default;
+    virtual ~ParserBase() = default;
 
-    Parser(const Parser& other) = delete;
-    Parser& operator= ( const Parser&) = delete;
-    Parser(const Parser&& other) = delete;
-    Parser& operator= ( const Parser&&) = delete;
+    ParserBase(const ParserBase& other) = delete;
+    ParserBase& operator= (const ParserBase&) = delete;
+    ParserBase(const ParserBase&& other) = delete;
+    ParserBase& operator= (const ParserBase&&) = delete;
 
 protected:
     /// it is a storage of not parsed data

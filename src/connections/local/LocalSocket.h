@@ -10,6 +10,7 @@
 #include <memory>
 #include <utility>
 #include <limits>
+#include <cstddef>
 
 #include "../../containers/SizedArray.h"
 

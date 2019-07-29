@@ -30,8 +30,8 @@ public:
     virtual ~QueueBase();
 
 protected:
-    std::atomic_uint32_t m_total_count;
-    std::atomic_uint32_t m_size;
+    std::atomic<uint32_t> m_total_count;
+    std::atomic<uint32_t> m_size;
     QUEUEBASE_STATUS m_status;
 
 };

@@ -51,7 +51,7 @@ public:
 private:
     int m_descr = -1;
     sockaddr_in m_addrinfo;
-    mutable std::atomic_uint32_t m_status;
+    mutable std::atomic<uint32_t> m_status;
     uint16_t m_port;
     uint32_t m_ip;
     std::unique_ptr<std::array<uint8_t, std::numeric_limits<uint16_t>::max()> > m_read_buf;

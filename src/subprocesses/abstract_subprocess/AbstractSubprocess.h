@@ -15,8 +15,7 @@ public:
 
     AbstractSubprocess(std::string &&path_input,
                        std::string &&path_output,
-                       std::string &&log_filename,
-                       std::string &&subscriber_name);
+                       std::string &&subprocess_name);
     void start();
 
     AbstractSubprocess(const AbstractSubprocess& other) = delete;

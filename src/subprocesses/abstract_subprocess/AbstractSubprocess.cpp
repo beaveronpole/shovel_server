@@ -4,9 +4,8 @@ using namespace std;
 
 AbstractSubprocess::AbstractSubprocess(string &&path_input,
                                        string &&path_output,
-                                       string &&log_filename,
-                                       string &&subscriber_name):
-        m_subprocess_name(subscriber_name){
+                                       string &&subprocess_name):
+        m_subprocess_name(subprocess_name){
     cout << "Start subprocess " << m_subprocess_name << " pid = " << getpid();
 
     auto local_socket = make_unique<LocalSocket>( move(path_output), move(path_input) );
